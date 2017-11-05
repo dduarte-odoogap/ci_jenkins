@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="jenkins_dashboard_start_action" model="ir.actions.client">
+        <field name="name">Jenkins Dashboard</field>
+        <field name="tag">jenkins_dashboard_start</field>
+        <field name="target">main</field>
+    </record>
+
+    <menuitem id="menu_jenkins_dashboard_start"
+              sequence="100"
+              name="Jenkins Dashboard"
+              parent="base.menu_automation"
+              action="jenkins_dashboard_start_action"/>
+</odoo>

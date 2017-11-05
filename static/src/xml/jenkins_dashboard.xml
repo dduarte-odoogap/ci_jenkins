@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<template xml:space="preserve">
+
+    <t t-name="jenkins.DashboardMain">
+        <div class="o_dashboards">
+            <div class="container-fluid o_jenkins_dashboard">
+            </div>
+        </div>
+    </t>
+
+    <t t-name="jenkins.dashboard_jobs">
+        <div class="row">
+            <div class="col-xs-12">
+                <h1>Jenkins Dashboard</h1>
+                <h2>Jobs</h2>
+                <div t-if="widget.jobs">
+                    <table class="table table-striped">
+                        <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>NAME</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                            <t t-foreach='widget.jobs' t-as='job'>
+                            <tr>
+                                <td><t t-esc="job.id"/></td>
+                                <td><t t-esc="job.name"/></td>
+                            </tr>
+                            </t>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </t>
+
+</template>
