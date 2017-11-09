@@ -14,6 +14,10 @@ var _t = core._t;
 var JenkinsDashboard = Widget.extend(ControlPanelMixin, {
     template: "jenkins.DashboardMain",
 
+    events: {
+        'click .o_run_jenkins_job': 'on_run_jenkins_job',
+    },
+
     init: function(parent, context) {
         this._super(parent, context);
 
@@ -54,6 +58,13 @@ var JenkinsDashboard = Widget.extend(ControlPanelMixin, {
         _.each(this.dashboards_templates, function(template) {
             self.$('.o_jenkins_dashboard').append(QWeb.render(template, {widget: self}));
         });
+    },
+
+    on_run_jenkins_job: function(ev) {
+        ev.preventDefault();
+        var self = this;
+        jobName = ev.target.id.split("_").pop();
+        ajax.jsonRpc('/web/jenkins/build','call',{"job":jobName});
     },
 
 });
