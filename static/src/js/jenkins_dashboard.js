@@ -1,4 +1,4 @@
-odoo.define('odoo_jenkins.jenkins_dashboard', function (require) {
+odoo.define('ci_jenkins.jenkins_dashboard', function (require) {
 "use strict";
 
 var core = require('web.core');
@@ -63,8 +63,8 @@ var JenkinsDashboard = Widget.extend(ControlPanelMixin, {
     on_run_jenkins_job: function(ev) {
         ev.preventDefault();
         var self = this;
-        jobName = ev.target.id.split("_").pop();
-        ajax.jsonRpc('/web/jenkins/build','call',{"job":jobName});
+        var jobName = ev.target.id.split("_").pop();
+        ajax.jsonRpc('/web/jenkins/build','call',{"job":jobName.toString()});
     },
 
 });

@@ -3,8 +3,8 @@
 
     <template id="assets_backend" name="jenkins_dashboard assets" inherit_id="web.assets_backend">
         <xpath expr="." position="inside">
-            <script type="text/javascript" src="/odoo_jenkins/static/src/js/jenkins_dashboard.js"></script>
-            <link rel="stylesheet" href="/odoo_jenkins/static/src/less/jenkins_dashboard.less"/>
+            <script type="text/javascript" src="/ci_jenkins/static/src/js/jenkins_dashboard.js"></script>
+            <link rel="stylesheet" href="/ci_jenkins/static/src/less/jenkins_dashboard.less"/>
         </xpath>
     </template>
 

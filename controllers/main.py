@@ -29,7 +29,7 @@ class JenkinsController(http.Controller):
                 "healthReport": server.get_job_info(job['name'])['healthReport']
             }
             res.append(jid)
-        print res
+
         return {
             'jobs': res
         }
@@ -40,6 +40,6 @@ class JenkinsController(http.Controller):
         jenkins_user = self.jenkins_user
         jenkins_password = self.jenkins_password
         server = jenkins.Jenkins(jenkins_url, username=jenkins_user, password=jenkins_password)
-        res = server.build_job('Test')
+        res = server.build_job(job)
         return {'result': res}
 

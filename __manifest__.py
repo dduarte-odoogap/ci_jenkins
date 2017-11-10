@@ -3,11 +3,11 @@
     'name': 'Odoo Jenkins',
     'version': '10.0',
     'author': 'Odoo Community',
-    'summary': 'Odoo Jenkins Plugin',
+    'summary': 'Odoo Jenkins CI Plugin',
     'description': """
 # Odoo Jenkins Plugin
 
-Odoo Jenkins Plugin allows:
+Odoo Jenkins-CI Plugin allows:
 * start a Jenkins Job based on a Scheduled Action
 * check jobs status without leaving Odoo UI
 
@@ -16,6 +16,17 @@ Odoo Jenkins Plugin allows:
 * Python Jenkins - http://python-jenkins.readthedocs.io/en/latest/index.html
 
 pip install -r requirements.txt
+
+Then go to:
+
+Settings >> Technical >> Parameters >> System Parameters
+
+Add/set the following params:
+* jenkins_ci.url
+* jenkins_ci.user
+* jenkins_ci.password
+
+Settings >> Technical >> Automation >> Jenkins Dashboard
     """,
     'category': 'Authentication',
     'depends': [
