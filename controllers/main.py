@@ -10,9 +10,9 @@ class JenkinsController(http.Controller):
 
     def __init__(self):
         params = request.env['ir.config_parameter']
-        self.jenkins_url = params.sudo().get_param('jenkins_ci.url', default='http://10.167.140.228:8080/')
-        self.jenkins_user = params.sudo().get_param('jenkins_ci.user', default='dduarte')
-        self.jenkins_password = params.sudo().get_param('jenkins_ci.password', default='admin')
+        self.jenkins_url = params.sudo().get_param('jenkins_ci.url', default='')
+        self.jenkins_user = params.sudo().get_param('jenkins_ci.user', default='')
+        self.jenkins_password = params.sudo().get_param('jenkins_ci.password', default='')
 
     @http.route('/web/jenkins/jobs', type='json', auth='user')
     def jenkins_get_jobs(self, **kw):

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <!-- Example CI Job -->
+        <record id="ir_cron_test_jenkins" model="ir.cron">
+            <field name="name">Test jenkins job</field>
+            <field name="jenkins_job" eval="True"/>
+            <field name="active" eval="False"/>
+            <field name="interval_type">minutes</field>
+            <field name="interval_number">2</field>
+            <field name="numbercall">-1</field>
+            <field name="model">ir.cron.methods</field>
+            <field name="function">_jenkins_build_job</field>
+            <field eval="('Test')," name="args" />
+        </record>
+
+    </data>
+
+</odoo>
