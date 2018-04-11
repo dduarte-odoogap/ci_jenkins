@@ -30,11 +30,12 @@ Settings >> Technical >> Automation >> Jenkins Dashboard
     """,
     'category': 'Authentication',
     'depends': [
-        'base'
+        'base', 'web'
     ],
     'data': [
         'views/templates.xml',
         'views/jenkins_views.xml',
+        'data/ir_cron.xml'
     ],
     'demo': [
     ],
