@@ -8,17 +8,12 @@ import jenkins
 
 class JenkinsController(http.Controller):
 
-    def __init__(self):
-        params = request.env['ir.config_parameter']
-        self.jenkins_url = params.sudo().get_param('jenkins_ci.url', default='')
-        self.jenkins_user = params.sudo().get_param('jenkins_ci.user', default='')
-        self.jenkins_password = params.sudo().get_param('jenkins_ci.password', default='')
-
     @http.route('/web/jenkins/jobs', type='json', auth='user')
     def jenkins_get_jobs(self, **kw):
-        jenkins_url = self.jenkins_url
-        jenkins_user = self.jenkins_user
-        jenkins_password = self.jenkins_password
+        params = request.env['ir.config_parameter']
+        jenkins_url = params.sudo().get_param('jenkins_ci.url', default='')
+        jenkins_user = params.sudo().get_param('jenkins_ci.user', default='')
+        jenkins_password = params.sudo().get_param('jenkins_ci.password', default='')
         server = jenkins.Jenkins(jenkins_url, username=jenkins_user, password=jenkins_password)
         res = []
         jobs = server.get_jobs()
