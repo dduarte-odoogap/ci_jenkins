@@ -16,12 +16,12 @@ class JenkinsController(http.Controller):
         jenkins_password = params.sudo().get_param('jenkins_ci.password', default='')
         server = jenkins.Jenkins(jenkins_url, username=jenkins_user, password=jenkins_password)
         res = []
-        jobs = server.get_jobs()
+        jobs = server.get_all_jobs()
         for job in jobs:
             jid = {
                 "color": job['color'],
                 "name": job['name'],
-                "healthReport": server.get_job_info(job['name'])['healthReport']
+                "healthReport": server.get_job_info(job['fullname'])['healthReport']
             }
             res.append(jid)
 
@@ -30,11 +30,11 @@ class JenkinsController(http.Controller):
         }
 
     @http.route('/web/jenkins/build', type='json', auth='user')
-    def jenkins_build_job(self, job, **kw):
+    def jenkins_build_job(self, job, parameters=False):
         jenkins_url = self.jenkins_url
         jenkins_user = self.jenkins_user
         jenkins_password = self.jenkins_password
         server = jenkins.Jenkins(jenkins_url, username=jenkins_user, password=jenkins_password)
-        res = server.build_job(job)
+        res = server.build_job(job, parameters)
         return {'result': res}
 
