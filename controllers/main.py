@@ -19,7 +19,7 @@ class JenkinsController(http.Controller):
         jobs = server.get_all_jobs()
         for job in jobs:
             jid = {
-                "color": job['color'],
+                "color": job['color'] if 'color' in job else '',
                 "name": job['name'],
                 "healthReport": server.get_job_info(job['fullname'])['healthReport']
             }
