@@ -19,6 +19,7 @@
                         <tr>
                             <th>Run</th>
                             <th>Task Name</th>
+                            <th>Full Path</th>
                             <th>Health Report</th>
                         </tr>
                         </thead>
@@ -27,6 +28,7 @@
                             <tr>
                                 <td><i class="fa fa-play-circle o_run_jenkins_job" aria-hidden="true"  t-attf-id="jenkins_execute_#{job.name}"></i> </td>
                                 <td t-attf-style="color: #{job.color}"><t t-esc="job.name"/></td>
+                                <td t-attf-style="color: #{job.color}"><t t-esc="job.fullname"/></td>
                                 <td t-attf-style="color: #{job.color}"><t t-esc="job.healthReport[0]['description']"/></td>
                             </tr>
                             </t>

@@ -21,6 +21,7 @@ class JenkinsController(http.Controller):
             jid = {
                 "color": job['color'] if 'color' in job else '',
                 "name": job['name'],
+                "fullname": job['fullname'],
                 "healthReport": server.get_job_info(job['fullname'])['healthReport']
             }
             res.append(jid)

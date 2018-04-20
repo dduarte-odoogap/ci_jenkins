@@ -56,9 +56,9 @@ var JenkinsDashboard = Widget.extend(ControlPanelMixin, {
     render_dashboards: function() {
         var self = this;
         console.log(self);
-        // _.each(this.dashboards_templates, function(template) {
-        //     self.$('.o_jenkins_dashboard').append(QWeb.render(template, {widget: self}));
-        // });
+         _.each(this.dashboards_templates, function(template) {
+             self.$('.o_jenkins_dashboard').append(QWeb.render(template, {widget: self}));
+         });
     },
 
     on_run_jenkins_job: function(ev) {
